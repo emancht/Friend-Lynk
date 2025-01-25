@@ -2,7 +2,7 @@ import axios from 'axios';
 import { create } from 'zustand';
 
 // const API_URL = import.meta.env.VITE_API_URL;
-const API_URL = import.meta.env.VITE_API_URL || 'https://friend-lynk.vercel.app/api';
+const API_URL = 'https://friend-lynk.vercel.app/api';
 
 
 const postStore = create((set, get) => ({
