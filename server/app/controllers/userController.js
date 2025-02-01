@@ -31,7 +31,7 @@ export const login = async (req, res) => {
         if (!validPass) return res.status(400).json({ success: false, msg: 'Invalid password' });
 
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.cookie('Authorization', token, { httpOnly: false, secure: false, domain: '', path: '/' }).json({ success: true, msg: "Login success!" });
+        res.cookie('Authorization', token, { httpOnly: false, secure: false, }).json({ success: true, msg: "Login success!" });
     } catch (err) {
         res.status(500).json({ success: false, msg: `Error during login: ${err.message}` });
     }
