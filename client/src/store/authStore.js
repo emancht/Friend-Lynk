@@ -1,10 +1,12 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import { toast } from 'react-hot-toast';
 import { create } from 'zustand';
 
 // const API_URL = import.meta.env.VITE_API_URL;
-const API_URL = 'https://friend-lynk.vercel.app/api';
+
+const API_URL = 'http://localhost:5000/api';
+// const API_URL = 'https://friend-lynk.vercel.app/api';
+
 console.log('API_URL:', API_URL);
 
 const authStore = create((set) => ({
@@ -18,20 +20,20 @@ const authStore = create((set) => ({
     suggestedUsers: [],
     bookmarks: [],
 
-    isLogin: () => {
-        return !!Cookies.get('Authorization');
-    },
+    // isLogin: () => {
+    //     return !!Cookies.get('Authorization');
+    // },
     // isLoggedIn: () => !!get().user,
 
     register: async (data) => {
         set({ isLoading: true, error: null });
         try {
             const response = await axios.post(`${API_URL}/register`, data);
-            toast.success(response.data.msg); // Success notification
+            toast.success(response.data.msg);
         } catch (error) {
             const errorMsg = error.response?.data?.msg || 'Registration failed';
             set({ error: errorMsg });
-            toast.error(errorMsg); // Error notification
+            toast.error(errorMsg);
         } finally {
             set({ isLoading: false });
         }
@@ -44,11 +46,11 @@ const authStore = create((set) => ({
                 withCredentials: true,
             });
             set({ user: response.data.user }); // Update the user state
-            toast.success(response.data.msg); // Notify on success
+            toast.success(response.data.msg);
         } catch (error) {
             const errorMsg = error.response?.data?.msg || 'Login failed';
             set({ error: errorMsg });
-            toast.error(errorMsg); // Notify on error
+            toast.error(errorMsg);
         } finally {
             set({ isLoading: false });
         }
@@ -60,7 +62,7 @@ const authStore = create((set) => ({
             set({ user: response.data.user });
 
         } catch (error) {
-            set({ error: error }); // Use error.message
+            set({ error: error });
             toast.error('Failed to fetch profile');
         }
     },
@@ -114,7 +116,7 @@ const authStore = create((set) => ({
         set({ isLoading: true, error: null });
         try {
             const response = await axios.post(`${API_URL}/follow/${userId}`, {}, { withCredentials: true });
-            toast.success(response.data.msg); // Notify dynamically
+            toast.success(response.data.msg);
             // Refetch the suggested users to ensure we have the latest data
             await set({ suggestedUsers: await fetchSuggestedUsers() });
         } catch (error) {
@@ -173,11 +175,11 @@ const authStore = create((set) => ({
                 bookmarks: response.data.bookmarks,
                 user: { ...state.user, bookmarks: response.data.bookmarks },
             }));
-            toast.success(response.data.msg); // Notify dynamically
+            toast.success(response.data.msg);
         } catch (error) {
             const errorMsg = error.response?.data?.msg || 'Failed to toggle bookmark';
             set({ error: errorMsg });
-            toast.error(errorMsg); // Notify on error
+            toast.error(errorMsg);
         } finally {
             set({ isLoading: false });
         }
@@ -192,7 +194,7 @@ const authStore = create((set) => ({
         } catch (error) {
             const errorMsg = error.response?.data?.msg || 'Failed to fetch bookmarks';
             set({ error: errorMsg });
-            toast.error(errorMsg); // Notify on error
+            toast.error(errorMsg);
         } finally {
             set({ isLoading: false });
         }

@@ -22,6 +22,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+// app.use(cors())
 app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());

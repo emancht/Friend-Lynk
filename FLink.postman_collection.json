@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "cdc502ff-b9e2-47a1-ad88-9f96b72e7586",
+		"name": "FLink",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36175599"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"emancht\", \r\n    \"fullname\": \"Eman\", \r\n    \"email\": \"emancht@gmail.com\",\r\n    \"password\": \"4150\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/register",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"emancht@gmail.com\",\r\n    \"password\": \"4150\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/login",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/logout",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/profile",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\": \"emancht\",\r\n        \"fullname\": \"Emon Chakma\",\r\n        \"email\": \"emancht@gmail.com\",\r\n        \"bio\": \"MERN junior developer\",\r\n        \"profileImage\": \"https://i.postimg.cc/wvb7N2jz/Screenshot-2024-12-23-211903-removebg-preview-1.png\",\r\n        \"coverImage\": \"https://i.postimg.cc/8PfZnk9d/hero-img.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/profile",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "myPost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/my-posts",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"my-posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/users",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Follow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/follow/678d8af2860d35192fdba455",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"follow",
+								"678d8af2860d35192fdba455"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bookmark",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/posts/678fa2304250dcd4f39b42a1/bookmark",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"posts",
+								"678fa2304250dcd4f39b42a1",
+								"bookmark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchBookmarked",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/bookmarks",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"bookmarks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"I like water lily\",\r\n    \"contentImage\": \"lkjj.jgp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/posts",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPosts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"I like apple\",\r\n    \"contentImage\": \"lkjj.jgp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/posts",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "like-dislike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/posts/6790e850c1554b34998ab1a6/like",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"posts",
+								"6790e850c1554b34998ab1a6",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editPost",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"I like orange\",\r\n    \"contentImage\": \"lkjj.jgp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/posts/678c44d381b9dbfb0c0ed419",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"posts",
+								"678c44d381b9dbfb0c0ed419"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePost",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/posts/678b7564d7ad2cbe689a7d28",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"posts",
+								"678b7564d7ad2cbe689a7d28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/search/asha",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"search",
+								"asha"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"nice\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/posts/678ba96d8f9c4fd934660e1e/comments",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"posts",
+								"678ba96d8f9c4fd934660e1e",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/comments/678b77dcaf7c33228b4b48ef",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"comments",
+								"678b77dcaf7c33228b4b48ef"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE",
+			"value": "https://friend-lynk.vercel.app/api",
+			"type": "string"
+		}
+	]
+}
